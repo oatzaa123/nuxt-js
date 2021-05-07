@@ -1,0 +1,309 @@
+@import "_mixing";
+@import "fonts";
+
+// --- color ---
+$main-red: #d90000;
+$black: #000;
+$black-opacity: #0000008c;
+$dark-black-opacity: #000000a3;
+$light-black-opacity: #0000009c;
+$white: #fff;
+$white-light: #fff0;
+$gray: #d1d1cb;
+$light-red: #d90000b5;
+$light-white: #ffffffab;
+$dark-white: #ffffffdb;
+$boder-line: #707070;
+$gayButton: #bababa;
+$light-skybule: #007dcb;
+
+$font-white: $white;
+$font-black: $black;
+$font-red: $main-red;
+
+$opacity-light-red: $light-red;
+$opacity-light-black: $light-black-opacity;
+$opacity-light-white: $light-white;
+$opacity-suplight-white: $white-light;
+$opacity-dark-white: $dark-white;
+$opactiy-navbar: 0px 6px 10px 0px #0000001f;
+
+$lineGradientRed: linear-gradient(
+  90deg,
+  rgba(235, 18, 18, 1) 0%,
+  rgba(163, 25, 25, 1) 100%
+);
+
+// --- size fonts --
+$font-header: 30px;
+$font-button: 40px;
+
+// --- common css ---
+.container {
+  max-width: 1280px;
+  width: 100%;
+  margin: auto;
+  @include for-phone-only {
+    padding: 0px 30px;
+  }
+  @include for-tablet-landscape-up {
+    padding: 0px 30px;
+  }
+}
+
+.containerFrame {
+  max-width: 1000px;
+  width: 100%;
+  margin: auto;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.alingCenter {
+  align-items: center;
+}
+
+// --- Grid ---
+.displayGrid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.span3 {
+  grid-column: span 3 !important;
+}
+.span4 {
+  grid-column: span 4 !important;
+}
+.span6 {
+  grid-column: span 6 !important;
+}
+.span12 {
+  grid-column: span 12 !important;
+}
+
+@include for-phone-only {
+  .span6M {
+    grid-column: span 6 !important;
+  }
+  .span12M {
+    grid-column: span 12 !important;
+  }
+}
+
+.gridGap20 {
+  grid-gap: 20px;
+}
+
+.gridGap30 {
+  grid-gap: 30px;
+}
+
+.gridGap100 {
+  grid-gap: 100px;
+}
+// --- Grid ---
+
+.radioInput {
+  width: 30px;
+  height: 30px;
+}
+
+.img-100 {
+  width: 100%;
+}
+
+.del-text-decoration {
+  text-decoration: none;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+.styleInput {
+  font-family: "DB BrandVoice X";
+  border: 1px solid red;
+  border-radius: 60px;
+  width: 100%;
+  height: 50px;
+  outline: 0px;
+  padding: 0px 30px;
+  font-size: 20px;
+  &.textArea {
+    margin-top: 20px;
+    padding: 20px;
+    height: 150px;
+    border-radius: 30px;
+  }
+}
+
+.styleButton {
+  padding: 15px 100px;
+  font-size: 24px;
+  color: $font-white;
+  background-color: $main-red;
+  border: 0px;
+  border-radius: 30px;
+  font-family: "DB BrandVoice X";
+  text-decoration: none;
+  &.cancel {
+    background-color: $gayButton;
+  }
+  &.loading {
+    font-size: 18px;
+    padding: 10px 50px;
+    margin-top: 30px;
+    border: 1px solid $main-red;
+    color: $main-red;
+    background-color: transparent;
+    transition: all 0.4s;
+    &:hover {
+      background-color: $main-red;
+      color: $font-white;
+      transition: all 0.4s;
+    }
+  }
+}
+
+.radioItem {
+  display: flex;
+  input[type="radio"] {
+    visibility: hidden;
+    position: absolute;
+    & + label:before {
+      height: 30px;
+      width: 30px;
+      margin-right: 10px;
+      content: " ";
+      display: inline-block;
+      vertical-align: baseline;
+      border: 1px solid #777;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    &:checked {
+      & + label:before {
+        // background-color: $main-red;
+        border: 1px solid $main-red;
+      }
+      & + label {
+        span {
+          position: absolute;
+          top: 0;
+          width: 26px;
+          height: 26px;
+          background-color: $main-red;
+          border-radius: 100%;
+          margin: 2px;
+        }
+      }
+    }
+  }
+}
+
+.style-chooser {
+  font-family: "DB BrandVoice X";
+  background-color: $main-red;
+  border-radius: 30px;
+  border: 0px;
+  height: 50px;
+  font-size: 24px;
+  width: 100%;
+  padding: 0px 30px;
+  color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='50' viewBox='0 0 24 24' width='50' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 0px;
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0px !important;
+  }
+  &.white {
+    @include for-phone-only {
+      width: 300px;
+    }
+    width: 250px;
+    background-color: $white;
+    border: 1px solid $main-red;
+    color: $font-black;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='red' height='50' viewBox='0 0 24 24' width='50' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  }
+  &.map {
+    @include for-phone-only {
+      width: 300px;
+    }
+    width: 350px;
+  }
+  &.partnerSuccess {
+    width: 250px;
+    background-color: $white;
+    border: 1px solid $main-red;
+    color: $font-black;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='red' height='50' viewBox='0 0 24 24' width='50' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+  }
+}
+
+.titleHeader {
+  margin-top: 50px;
+}
+
+button {
+  cursor: pointer;
+  &:focus {
+    outline: -webkit-focus-ring-color auto 0px;
+  }
+}
+
+.box {
+  display: flex;
+  align-items: center;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+  label {
+    display: none;
+  }
+}
+
+.inputfile + label {
+  max-width: 100%;
+  font-size: 1.25rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+  border-radius: 10px;
+}
+
+.inputfile-2 + label {
+  color: $font-black;
+  border: 2px solid $boder-line;
+}
+
+.inputfile-2:focus + label,
+.inputfile-2.has-focus + label,
+.inputfile-2 + label:hover {
+  color: #722040;
+}
+
+span.textDetail {
+  margin-left: 20px;
+  font-weight: 300;
+}
